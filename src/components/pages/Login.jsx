@@ -2,14 +2,18 @@ import axios from "axios";
 import { useState } from "react";
 
 export default function Login() {
-  const [emailId, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailId, setEmailId] = useState("vijay@gmail.com");
+  const [password, setPassword] = useState("Gta@2015");
 
   const handleLogin = async () => {
-    axios.post("http://localhost:3000/login", {
-      emailId,
-      password,
-    });
+    axios.post(
+      "http://localhost:3000/login",
+      {
+        emailId,
+        password,
+      },
+      { withCredentials: true }
+    );
   };
   return (
     <div className="flex justify-center items-center m-14">
