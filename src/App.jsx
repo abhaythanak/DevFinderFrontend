@@ -3,6 +3,7 @@ import "./App.css";
 import Body from "./components/Body";
 import Login from "./components/pages/LogIn";
 import Feed from "./components/Feed";
+import Profile from "./components/pages/Profile";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Body />}>
             <Route path="/feed" element={<Feed />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/main" element="main page" />
             <Route path="/login" element={<Login />} />
           </Route>
