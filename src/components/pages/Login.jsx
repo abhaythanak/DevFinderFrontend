@@ -8,6 +8,7 @@ import { BASE_URL } from "../../utils/Constants";
 export default function Login() {
   const [emailId, setEmailId] = useState("vijay@gmail.com");
   const [password, setPassword] = useState("Gta@2015");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleLogin = async () => {
@@ -24,6 +25,7 @@ export default function Login() {
       dispatch(addUser(res.data));
       navigate("/feed");
     } catch (error) {
+      setError(error?.response?.data || "Something went wrong");
       console.error(error);
     }
   };
@@ -58,6 +60,7 @@ export default function Login() {
               />
             </label>
           </div>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-primary" onClick={handleLogin}>
               Login
